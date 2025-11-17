@@ -71,3 +71,4 @@ AddressablesData/*
 # ========== Misc ==========
 # JetBrains Rider 캐시
 .idea/
+/.vs/PastelBlocks/FileContentIndex
