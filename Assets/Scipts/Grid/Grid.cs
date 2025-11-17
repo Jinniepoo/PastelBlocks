@@ -17,9 +17,17 @@ public class Grid : MonoBehaviour
     public float sqOffset = 0.0f;
 
     private Vector2 offset = new Vector2(0.0f, 0.0f);
+    
     private List<GameObject> gridSquares = new List<GameObject>();
-
-    void Start()
+    private void OnEnable()
+    {
+        GameEvents.CheckIfShapeCanBePlaced += CheckIfShapeCanBePlaced;
+    }
+    private void OnDisable()
+    {
+        GameEvents.CheckIfShapeCanBePlaced -= CheckIfShapeCanBePlaced;
+    }
+        void Start()
     {
         CreateGrid();
     }
@@ -95,6 +103,19 @@ public class Grid : MonoBehaviour
             sq.GetComponent<RectTransform>().localPosition = new Vector3(startPos.x + posX_Offset, startPos.y - posY_Offset, 0.0f);
 
             colNum++;
+        }
+    }
+
+    private void CheckIfShapeCanBePlaced()
+    {
+        foreach (var square in gridSquares)
+        {
+            var gridSq = square.GetComponent<GridSquare>();
+
+            if (gridSq.UsableSquare() == true)
+            {
+                gridSq.ActivateSquare();
+            }
         }
     }
 }

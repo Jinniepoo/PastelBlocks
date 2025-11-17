@@ -3,11 +3,31 @@
   "WorkspaceRootPath": "C:\\Users\\hokon\\PastelBlocks\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|c:\\users\\hokon\\pastelblocks\\assets\\scipts\\shape\\shapesquare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|c:\\users\\hokon\\pastelblocks\\assets\\scipts\\grid\\gridsquare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|solutionrelative:assets\\scipts\\grid\\gridsquare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|C:\\Users\\hokon\\PastelBlocks\\assets\\scipts\\shape\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|solutionrelative:assets\\scipts\\shape\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|c:\\users\\hokon\\pastelblocks\\assets\\scipts\\shape\\shapestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|solutionrelative:assets\\scipts\\shape\\shapestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|c:\\users\\hokon\\pastelblocks\\assets\\scipts\\shape\\shapedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|solutionrelative:assets\\scipts\\shape\\shapedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|c:\\users\\hokon\\pastelblocks\\assets\\scipts\\grid\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|solutionrelative:assets\\scipts\\grid\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|C:\\Users\\hokon\\PastelBlocks\\assets\\scipts\\shape\\shapesquare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|solutionrelative:assets\\scipts\\shape\\shapesquare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DEEF18B8-909F-80F5-1FC6-C78DE5F1B1F1}|Assembly-CSharp-Editor.csproj|c:\\users\\hokon\\pastelblocks\\assets\\scipts\\editor\\shapedatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DEEF18B8-909F-80F5-1FC6-C78DE5F1B1F1}|Assembly-CSharp-Editor.csproj|C:\\Users\\hokon\\PastelBlocks\\assets\\scipts\\editor\\shapedatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DEEF18B8-909F-80F5-1FC6-C78DE5F1B1F1}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scipts\\editor\\shapedatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -31,19 +51,83 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ShapeSquare.cs",
-              "DocumentMoniker": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Shape\\ShapeSquare.cs",
-              "RelativeDocumentMoniker": "Assets\\Scipts\\Shape\\ShapeSquare.cs",
-              "ToolTip": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Shape\\ShapeSquare.cs",
-              "RelativeToolTip": "Assets\\Scipts\\Shape\\ShapeSquare.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
+              "Title": "GridSquare.cs",
+              "DocumentMoniker": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Grid\\GridSquare.cs",
+              "RelativeDocumentMoniker": "Assets\\Scipts\\Grid\\GridSquare.cs",
+              "ToolTip": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Grid\\GridSquare.cs",
+              "RelativeToolTip": "Assets\\Scipts\\Grid\\GridSquare.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAkwCcAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T13:59:03.782Z",
+              "WhenOpened": "2025-11-17T15:48:28.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShapeData.cs",
+              "DocumentMoniker": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Shape\\ShapeData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scipts\\Shape\\ShapeData.cs",
+              "ToolTip": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Shape\\ShapeData.cs",
+              "RelativeToolTip": "Assets\\Scipts\\Shape\\ShapeData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:45:38.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ShapeStorage.cs",
+              "DocumentMoniker": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Shape\\ShapeStorage.cs",
+              "RelativeDocumentMoniker": "Assets\\Scipts\\Shape\\ShapeStorage.cs",
+              "ToolTip": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Shape\\ShapeStorage.cs",
+              "RelativeToolTip": "Assets\\Scipts\\Shape\\ShapeStorage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:45:37.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Grid.cs",
+              "DocumentMoniker": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Grid\\Grid.cs",
+              "RelativeDocumentMoniker": "Assets\\Scipts\\Grid\\Grid.cs",
+              "ToolTip": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Grid\\Grid.cs",
+              "RelativeToolTip": "Assets\\Scipts\\Grid\\Grid.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:42:00.914Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Shape.cs",
+              "DocumentMoniker": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Shape\\Shape.cs",
+              "RelativeDocumentMoniker": "Assets\\Scipts\\Shape\\Shape.cs",
+              "ToolTip": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Shape\\Shape.cs",
+              "RelativeToolTip": "Assets\\Scipts\\Shape\\Shape.cs",
+              "ViewState": "AgIAAMkAAAAAAAAAAAAIwNcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T14:02:02.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ShapeSquare.cs",
+              "DocumentMoniker": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Shape\\ShapeSquare.cs",
+              "RelativeDocumentMoniker": "Assets\\Scipts\\Shape\\ShapeSquare.cs",
+              "ToolTip": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Shape\\ShapeSquare.cs",
+              "RelativeToolTip": "Assets\\Scipts\\Shape\\ShapeSquare.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T13:59:03.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ShapeDataDrawer.cs",
               "DocumentMoniker": "C:\\Users\\hokon\\PastelBlocks\\Assets\\Scipts\\Editor\\ShapeDataDrawer.cs",
               "RelativeDocumentMoniker": "Assets\\Scipts\\Editor\\ShapeDataDrawer.cs",
@@ -51,8 +135,7 @@
               "RelativeToolTip": "Assets\\Scipts\\Editor\\ShapeDataDrawer.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAwBgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T13:06:51.855Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T13:06:51.855Z"
             }
           ]
         }

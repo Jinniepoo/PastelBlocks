@@ -1,17 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Shape : MonoBehaviour
+public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
 {
     public GameObject squareImage;
+    public Vector3 shapeSelectedScale;
+    public Vector2 offset = new Vector2(0, 700f);
 
+    [HideInInspector]
     public ShapeData curShapeData;
 
     private List<GameObject> currentShape = new List<GameObject>();
+    private Vector3 shapeStartScale;
+    private RectTransform shapeTransform;
+    private bool shapeDrag = true;
+    private Canvas shapeCanvas;
+
+    public void Awake()
+    {
+        shapeStartScale = this.GetComponent<RectTransform>().localScale;
+        shapeTransform = this.GetComponent<RectTransform>();
+        shapeCanvas = this.GetComponentInParent<Canvas>();
+        shapeDrag = true;
+    }
+
     void Start()
     {
-        RequestNewShape(curShapeData);
+        
     }
 
     public void RequestNewShape(ShapeData shapeData)
@@ -173,6 +190,44 @@ public class Shape : MonoBehaviour
             }
         }
         return num;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        this.GetComponent<RectTransform>().localScale = shapeSelectedScale;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        shapeTransform.anchorMin = new Vector2(0, 0);
+        shapeTransform.anchorMax = new Vector2(0, 0);
+        shapeTransform.pivot = new Vector2(0, 0);
+
+        Vector2 pos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(shapeCanvas.transform as RectTransform,
+            eventData.position, Camera.main, out pos);
+        shapeTransform.localPosition = pos + offset;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        this.GetComponent<RectTransform>().localScale = shapeStartScale;
+        GameEvents.CheckIfShapeCanBePlaced();
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+
     }
 
 }

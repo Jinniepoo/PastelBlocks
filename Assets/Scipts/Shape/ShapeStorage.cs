@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ShapeStorage : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public List<ShapeData> shapeData;
+    public List<Shape> shapeList;
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        foreach (var shape in shapeList)
+        {
+            var shapeIdx = UnityEngine.Random.Range(0, shapeData.Count);
+            shape.CreateShape(shapeData[shapeIdx]);
+        }
     }
 }
