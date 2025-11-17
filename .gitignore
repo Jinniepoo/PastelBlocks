@@ -1,0 +1,73 @@
+# ========== Unity ==========
+
+# OS 관련
+.DS_Store
+Thumbs.db
+
+# Unity 기본 제외 항목
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+MemoryCaptures/
+UserSettings/
+
+# Unity Collaborate 잔여물
+.collabignore
+
+# Visual Studio / Rider
+*.csproj
+*.sln
+*.pidb
+*.unityproj
+*.user
+*.userprefs
+*.suo
+*.tmp
+*.userosscache
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# TextMeshPro 생성 파일
+Assets/TextMesh Pro/Resources/Fonts & Materials/*.asset
+Assets/TextMesh Pro/Resources/*.asset
+
+# Unity Cache
+*.stackdump
+*.apk
+*.aab
+
+# Build Artifacts
+*.exe
+*.app
+*.unitypackage
+
+# Crash Reports
+CrashReports/
+
+# Lightmap / GI Cache
+LightmapSnapshot/
+LightingData.asset
+Assets/**/LightingData.asset
+Assets/**/ReflectionProbe-*.exr
+
+# Addressables
+AddressablesData/*
+!AddressablesData/*.asset
+!AddressablesData/*.json
+
+# ========== Git ==========
+
+# Ignore local secrets
+*.env
+*.dotenv
+
+# ========== Misc ==========
+# JetBrains Rider 캐시
+.idea/
