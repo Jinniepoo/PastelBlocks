@@ -208,9 +208,9 @@ public class Grid : MonoBehaviour
             foreach (var sqIdx in sq)
             {
                 var comp = gridSquares[sqIdx].GetComponent<GridSquare>();
-                if (comp.SquareOccupied == false)
+                if (!comp.SquareOccupied)
                 {
-                    sqCompleted = true;
+                    sqCompleted = false;
                 }
             }
 
