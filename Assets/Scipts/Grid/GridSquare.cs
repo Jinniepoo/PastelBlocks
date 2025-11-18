@@ -76,6 +76,7 @@ public class GridSquare : MonoBehaviour
             Selected = false;
             hoverImage.gameObject.SetActive(false);
         }
+
         else if (collision.GetComponent<ShapeSquare>() != null)
         {
             collision.GetComponent<ShapeSquare>().CancelOccupied();

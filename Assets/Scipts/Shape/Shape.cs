@@ -15,20 +15,23 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
 
     private List<GameObject> currentShape = new List<GameObject>();
     private Vector3 shapeStartScale;
-    private void OnEnable()
-    {
-        GameEvents.MoveShapeToStartPos += MoveShapeToStartPos;
-    }
-
-    private void OnDisable()
-    {
-        GameEvents.MoveShapeToStartPos -= MoveShapeToStartPos;
-    }
+  
     private RectTransform shapeTransform;
     private bool shapeDrag = true;
     private Canvas shapeCanvas;
     private Vector3 startPos;
     private bool activeShape = true;
+    private void OnEnable()
+    {
+        GameEvents.MoveShapeToStartPos += MoveShapeToStartPos;
+        GameEvents.SetShapeInactive += SetShapeInactive;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.MoveShapeToStartPos -= MoveShapeToStartPos;
+        GameEvents.SetShapeInactive -= SetShapeInactive;
+    }
 
     public void Awake()
     {
@@ -67,6 +70,16 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
         activeShape = false;
     }
 
+    private void SetShapeInactive()
+    {
+        if (IsOnStartPos() == false && IsAnyOfShapeSqActive())
+        {
+            foreach (var square in currentShape)
+            {
+                square.gameObject.SetActive(false);
+            }
+        }
+    }
     public void ActivateShape()
     {
         if (!activeShape)

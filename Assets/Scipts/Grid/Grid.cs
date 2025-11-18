@@ -135,7 +135,24 @@ public class Grid : MonoBehaviour
                 gridSquares[sqIdx].GetComponent<GridSquare>().PlaceShapeOnBoard();
             }
 
-            curSelectedShape.DeactivateShape();
+            var shapeLeft = 0;
+            foreach (var shape in shapeStorage.shapeList)
+            {
+                if (shape.IsOnStartPos() && shape.IsAnyOfShapeSqActive())
+                {
+                    shapeLeft++;
+                }
+            }
+
+            if (shapeLeft == 0)
+            {
+                GameEvents.RequestNewShape();
+            }
+
+            else
+            {
+                GameEvents.SetShapeInactive();
+            }
         }
         else
         {
