@@ -809,6 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3bb44de37f32849915044b35afda6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shapeStorage: {fileID: 1106468626}
   gridSquare: {fileID: 4192565475477217737, guid: 9fc17e7772dfc1f469c3fef5b1179ac0, type: 3}
   cols: 9
   rows: 9

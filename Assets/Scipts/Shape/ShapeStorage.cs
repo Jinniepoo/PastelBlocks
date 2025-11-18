@@ -14,4 +14,17 @@ public class ShapeStorage : MonoBehaviour
             shape.CreateShape(shapeData[shapeIdx]);
         }
     }
+
+    public Shape GetCurSelectedShape()
+    {
+        foreach (var shape in shapeList)
+        {
+            if (shape.IsOnStartPos() == false && shape.IsAnyOfShapeSqActive())
+                return shape;
+
+        }
+
+        Debug.LogError("No Shape Selected");
+        return null;
+    }
 }

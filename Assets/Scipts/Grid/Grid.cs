@@ -6,6 +6,8 @@ using UnityEngine;
 public class Grid : MonoBehaviour
 {
     [SerializeField]
+    private ShapeStorage shapeStorage;
+    [SerializeField]
     private GameObject gridSquare;
 
     public int cols = 0;
@@ -117,5 +119,7 @@ public class Grid : MonoBehaviour
                 gridSq.ActivateSquare();
             }
         }
+
+        shapeStorage.GetCurSelectedShape().DeactivateShape();
     }
 }

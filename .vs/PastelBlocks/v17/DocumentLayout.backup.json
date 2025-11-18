@@ -11,15 +11,15 @@
       "RelativeMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|solutionrelative:assets\\scipts\\shape\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|c:\\users\\hokon\\pastelblocks\\assets\\scipts\\shape\\shapestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|C:\\Users\\hokon\\PastelBlocks\\assets\\scipts\\shape\\shapestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|solutionrelative:assets\\scipts\\shape\\shapestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|c:\\users\\hokon\\pastelblocks\\assets\\scipts\\shape\\shapedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|C:\\Users\\hokon\\PastelBlocks\\assets\\scipts\\shape\\shapedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|solutionrelative:assets\\scipts\\shape\\shapedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|c:\\users\\hokon\\pastelblocks\\assets\\scipts\\grid\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|C:\\Users\\hokon\\PastelBlocks\\assets\\scipts\\grid\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC1D1037-F8F7-80D7-7A23-2DB4738ABF3E}|Assembly-CSharp.csproj|solutionrelative:assets\\scipts\\grid\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -71,8 +71,7 @@
               "RelativeToolTip": "Assets\\Scipts\\Shape\\ShapeData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T14:45:38.931Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T14:45:38.931Z"
             },
             {
               "$type": "Document",
@@ -84,8 +83,7 @@
               "RelativeToolTip": "Assets\\Scipts\\Shape\\ShapeStorage.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T14:45:37.061Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T14:45:37.061Z"
             },
             {
               "$type": "Document",
@@ -97,8 +95,7 @@
               "RelativeToolTip": "Assets\\Scipts\\Grid\\Grid.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T14:42:00.914Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T14:42:00.914Z"
             },
             {
               "$type": "Document",
@@ -110,8 +107,7 @@
               "RelativeToolTip": "Assets\\Scipts\\Shape\\Shape.cs",
               "ViewState": "AgIAAMkAAAAAAAAAAAAIwNcAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-17T14:02:02.696Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T14:02:02.696Z"
             },
             {
               "$type": "Document",

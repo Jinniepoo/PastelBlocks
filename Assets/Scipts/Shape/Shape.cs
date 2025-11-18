@@ -17,6 +17,8 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
     private RectTransform shapeTransform;
     private bool shapeDrag = true;
     private Canvas shapeCanvas;
+    private Vector3 startPos;
+    private bool activeShape = true;
 
     public void Awake()
     {
@@ -24,6 +26,47 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
         shapeTransform = this.GetComponent<RectTransform>();
         shapeCanvas = this.GetComponentInParent<Canvas>();
         shapeDrag = true;
+        startPos = transform.localPosition; 
+        activeShape = true;
+    }
+
+    public bool IsOnStartPos()
+    {
+        return shapeTransform.localPosition == startPos;
+    }
+
+    public bool IsAnyOfShapeSqActive()
+    {
+        foreach (var square in currentShape)
+        {
+            if (square.gameObject.activeSelf)
+                return true;
+        }
+        return false;
+    }
+
+    public void DeactivateShape()
+    {
+        if (activeShape)
+        {
+            foreach (var square in currentShape)
+            {
+                square?.GetComponent<ShapeSquare>().DeactivateShape();
+            }
+        }
+        activeShape = false;
+    }
+
+    public void ActivateShape()
+    {
+        if (!activeShape)
+        {
+            foreach (var square in currentShape)
+            {
+                square?.GetComponent<ShapeSquare>().ActivateShape();
+            }
+        }
+        activeShape = true;
     }
 
     void Start()
@@ -33,6 +76,7 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
 
     public void RequestNewShape(ShapeData shapeData)
     {
+        shapeTransform.localPosition = startPos;
         CreateShape(shapeData);
     }
 
