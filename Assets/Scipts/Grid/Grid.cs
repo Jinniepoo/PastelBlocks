@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq.Expressions;
 using UnityEngine;
 
@@ -49,6 +50,7 @@ public class Grid : MonoBehaviour
             for (var col = 0; col < cols; col++)
             {
                 gridSquares.Add(Instantiate(gridSquare) as GameObject);
+                gridSquares[gridSquares.Count - 1].GetComponent<GridSquare>().SquareIdx = sqIdx;
                 gridSquares[gridSquares.Count - 1].transform.SetParent(this.transform);
                 gridSquares[gridSquares.Count - 1].transform.localScale = new Vector3(sqScale, sqScale, sqScale);
                 gridSquares[gridSquares.Count - 1].transform.GetComponent<GridSquare>().SetImage(sqIdx % 2 == 0);
@@ -110,16 +112,34 @@ public class Grid : MonoBehaviour
 
     private void CheckIfShapeCanBePlaced()
     {
+        var sqIdxs = new List<int>();
+
         foreach (var square in gridSquares)
         {
             var gridSq = square.GetComponent<GridSquare>();
 
-            if (gridSq.UsableSquare() == true)
+            if (gridSq.Selected && !gridSq.SquareOccupied)
             {
-                gridSq.ActivateSquare();
+                sqIdxs.Add(gridSq.SquareIdx);
+                gridSq.Selected = false;
             }
         }
 
-        shapeStorage.GetCurSelectedShape().DeactivateShape();
+        var curSelectedShape = shapeStorage.GetCurSelectedShape();
+        if (curSelectedShape == null) return; //선택된거 없을때
+
+        if (curSelectedShape.totalSqNum == sqIdxs.Count)
+        {
+            foreach (var sqIdx in sqIdxs)
+            {
+                gridSquares[sqIdx].GetComponent<GridSquare>().PlaceShapeOnBoard();
+            }
+
+            curSelectedShape.DeactivateShape();
+        }
+        else
+        {
+            GameEvents.MoveShapeToStartPos();
+        }
     }
 }

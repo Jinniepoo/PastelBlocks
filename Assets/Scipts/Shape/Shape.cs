@@ -11,9 +11,19 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
 
     [HideInInspector]
     public ShapeData curShapeData;
+    public int totalSqNum { get; set; }
 
     private List<GameObject> currentShape = new List<GameObject>();
     private Vector3 shapeStartScale;
+    private void OnEnable()
+    {
+        GameEvents.MoveShapeToStartPos += MoveShapeToStartPos;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.MoveShapeToStartPos -= MoveShapeToStartPos;
+    }
     private RectTransform shapeTransform;
     private bool shapeDrag = true;
     private Canvas shapeCanvas;
@@ -84,7 +94,7 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
     {
         curShapeData = shapeData;
 
-        var totalSqNum = GetNumberOfSquares(shapeData);
+        totalSqNum = GetNumberOfSquares(shapeData);
 
         while (currentShape.Count <= totalSqNum)
         {
@@ -274,4 +284,8 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
 
     }
 
+    private void MoveShapeToStartPos()
+    {
+        shapeTransform.transform.localPosition = startPos;
+    }
 }

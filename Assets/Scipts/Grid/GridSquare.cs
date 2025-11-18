@@ -26,6 +26,11 @@ public class GridSquare : MonoBehaviour
         return hoverImage.gameObject.activeSelf;
     }
 
+    public void PlaceShapeOnBoard()
+    {
+        ActivateSquare();
+    }
+
     public void ActivateSquare()
     {
         hoverImage.gameObject.SetActive(false);
@@ -38,18 +43,42 @@ public class GridSquare : MonoBehaviour
     {
         normalImage.GetComponent<Image>().sprite = firstImage ? normalImages[1] : normalImages[0];
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        hoverImage.gameObject.SetActive(true);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        hoverImage.gameObject.SetActive(true);
+        if (SquareOccupied == false)
+        {
+            Selected = true;
+            hoverImage.gameObject.SetActive(true);
+        }
+        else if (collision.GetComponent<ShapeSquare>() != null)
+        {
+            collision.GetComponent<ShapeSquare>().SetOccupied();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Selected = true;
+        if (SquareOccupied == false)
+        {
+            hoverImage.gameObject.SetActive(true);
+        }
+        else if (collision.GetComponent<ShapeSquare>() != null)
+        {
+            collision.GetComponent<ShapeSquare>().SetOccupied();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        hoverImage.gameObject.SetActive(false);
+        if (SquareOccupied == false)
+        {
+            Selected = false;
+            hoverImage.gameObject.SetActive(false);
+        }
+        else if (collision.GetComponent<ShapeSquare>() != null)
+        {
+            collision.GetComponent<ShapeSquare>().CancelOccupied();
+        }
     }
 }
