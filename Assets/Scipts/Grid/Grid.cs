@@ -20,8 +20,10 @@ public class Grid : MonoBehaviour
     public float sqOffset = 0.0f;
 
     private Vector2 offset = new Vector2(0.0f, 0.0f);
-    
     private List<GameObject> gridSquares = new List<GameObject>();
+
+    private GridLines gridLines;
+
     private void OnEnable()
     {
         GameEvents.CheckIfShapeCanBePlaced += CheckIfShapeCanBePlaced;
@@ -30,8 +32,9 @@ public class Grid : MonoBehaviour
     {
         GameEvents.CheckIfShapeCanBePlaced -= CheckIfShapeCanBePlaced;
     }
-        void Start()
+    void Start()
     {
+        gridLines = GetComponent<GridLines>();
         CreateGrid();
     }
 
@@ -53,10 +56,9 @@ public class Grid : MonoBehaviour
                 gridSquares[gridSquares.Count - 1].GetComponent<GridSquare>().SquareIdx = sqIdx;
                 gridSquares[gridSquares.Count - 1].transform.SetParent(this.transform);
                 gridSquares[gridSquares.Count - 1].transform.localScale = new Vector3(sqScale, sqScale, sqScale);
-                gridSquares[gridSquares.Count - 1].transform.GetComponent<GridSquare>().SetImage(sqIdx % 2 == 0);
+                gridSquares[gridSquares.Count - 1].transform.GetComponent<GridSquare>().SetImage(gridLines.GetGridSqIdx(sqIdx) % 2 == 0);
                 sqIdx++;
             }
-
         }
     }
 
@@ -153,10 +155,93 @@ public class Grid : MonoBehaviour
             {
                 GameEvents.SetShapeInactive();
             }
+
+            Check_AnyLineCompleted();
         }
         else
         {
             GameEvents.MoveShapeToStartPos();
         }
+    }
+
+    public void Check_AnyLineCompleted()
+    {
+        List<int[]> lines = new List<int[]>();
+
+        //col
+        foreach (var col in gridLines.colIdx)
+        {
+            lines.Add(gridLines.GetVerticalLine(col));
+        }
+
+        //row
+        for (int row = 0; row < 9; row++)
+        {
+            List<int> data = new List<int>(9);
+            for (var idx = 0; idx < 9; idx++)
+            {
+                data.Add(gridLines.lineData[row, idx]);
+            }
+
+            lines.Add(data.ToArray());
+        }
+
+        var completedLines = Check_SquaresCompleted(lines);
+
+        if (completedLines > 2)
+        {
+            //bonus animation 추가하기
+        }
+
+        //점수 추가하기
+    }
+
+    private int Check_SquaresCompleted(List<int[]> data)
+    {
+        List<int[]> completedSquares = new List<int[]>();
+
+        var sqsCompleted = 0;
+
+        foreach (var sq in data)
+        {
+            var sqCompleted = true;
+            foreach (var sqIdx in sq)
+            {
+                var comp = gridSquares[sqIdx].GetComponent<GridSquare>();
+                if (comp.SquareOccupied == false)
+                {
+                    sqCompleted = true;
+                }
+            }
+
+            if (sqCompleted)
+            {
+                completedSquares.Add(sq);
+            }
+        }
+
+        foreach (var sq in completedSquares)
+        {
+            var completed = false;
+
+            foreach (var sqIdx in sq)
+            {
+                var comp = gridSquares[sqIdx].GetComponent<GridSquare>();
+                comp.DeactivateSquare();
+                completed = true;
+            }
+
+            foreach (var sqIdx in sq)
+            {
+                var comp = gridSquares[sqIdx].GetComponent<GridSquare>();
+                comp.ClearOccupied();
+            }
+
+            if (completed)
+            {
+                sqsCompleted++;
+            }
+        }
+        return sqsCompleted;
     }
 }
