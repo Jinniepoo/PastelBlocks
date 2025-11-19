@@ -155,7 +155,6 @@ public class Grid : MonoBehaviour
             {
                 GameEvents.SetShapeInactive();
             }
-
             Check_AnyLineCompleted();
         }
         else
@@ -186,6 +185,19 @@ public class Grid : MonoBehaviour
             lines.Add(data.ToArray());
         }
 
+        //네모
+        for (int sq = 0; sq < 9; sq++)
+        {
+            List<int> data = new List<int>(9);
+            for (var idx = 0; idx < 9; idx++)
+            {
+                data.Add(gridLines.sqData[sq, idx]);
+            }
+
+            lines.Add(data.ToArray());
+        }
+
+
         var completedLines = Check_SquaresCompleted(lines);
 
         if (completedLines > 2)
@@ -193,7 +205,8 @@ public class Grid : MonoBehaviour
             //bonus animation 추가하기
         }
 
-        //점수 추가하기
+        var totalScore = 10 * completedLines;
+        GameEvents.AddScores(totalScore);
     }
 
     private int Check_SquaresCompleted(List<int[]> data)
