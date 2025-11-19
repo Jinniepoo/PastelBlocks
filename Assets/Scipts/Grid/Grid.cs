@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq.Expressions;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Grid : MonoBehaviour
@@ -207,6 +208,7 @@ public class Grid : MonoBehaviour
 
         var totalScore = 10 * completedLines;
         GameEvents.AddScores(totalScore);
+        Check_PlayerLost();
     }
 
     private int Check_SquaresCompleted(List<int[]> data)
@@ -256,5 +258,115 @@ public class Grid : MonoBehaviour
             }
         }
         return sqsCompleted;
+    }
+
+    private void Check_PlayerLost()
+    {
+        var validShapes = 0;
+
+        for (var idx = 0; idx < shapeStorage.shapeList.Count; idx++)
+        {
+            var isShapeActive = shapeStorage.shapeList[idx].IsAnyOfShapeSqActive();
+
+            if (Check_ShapeCanBePlacedOnGrid(shapeStorage.shapeList[idx]) && isShapeActive)
+            {
+                shapeStorage.shapeList[idx]?.ActivateShape();
+                validShapes++;
+            }
+        }
+
+        if (validShapes == 0)
+        {
+            GameEvents.GameOver(false); //임시
+            Debug.Log("Game Over");
+        }
+    }
+
+    private bool Check_ShapeCanBePlacedOnGrid(Shape curShape)
+    {
+        var curShapeData = curShape.curShapeData;
+        var shapeCols = curShapeData.cols;
+        var shapeRows = curShapeData.rows;
+
+        //채워진 사각형의 모든 idx
+        List<int> origShapeFilledUpSqs = new List<int>();
+        var sqIdx = 0;
+
+        for (var rowIdx = 0; rowIdx < shapeRows; rowIdx++)
+        {
+            for (var colIdx = 0; colIdx < shapeCols; colIdx++)
+            {
+                if (curShapeData.board[rowIdx].col[colIdx])
+                {
+                    origShapeFilledUpSqs.Add(sqIdx);
+                }
+                sqIdx++;
+            }
+        }
+
+        if (curShape.totalSqNum != origShapeFilledUpSqs.Count)
+            Debug.LogError("No. of filled squares != original shape");
+
+        var sqList = GetAllSqCombination(shapeCols, shapeRows);
+
+        bool canBePlaced = false;
+
+        foreach (var num in sqList)
+        {
+            bool shapeCanBePlaced = true;
+            foreach (var sqIdxToCheck in origShapeFilledUpSqs)
+            {
+                var comp = gridSquares[num[sqIdxToCheck]].GetComponent<GridSquare>();
+                if (comp.SquareOccupied)
+                {
+                    shapeCanBePlaced = false;
+                }
+            }
+
+            if (shapeCanBePlaced)
+            {
+                canBePlaced = true;
+            }
+        }
+
+        return canBePlaced;
+    }
+
+    private List<int[]> GetAllSqCombination(int cols, int rows)
+    {
+        var sqList = new List<int[]>();
+        var lastColIdx = 0;
+        var lastRowIdx = 0;
+
+        int safeIdx = 0;
+
+        while (lastRowIdx + (rows - 1) < 9)
+        {
+            var rowData = new List<int>();
+
+            for (var row = lastRowIdx; row < lastRowIdx + rows; row++)
+            {
+                for (var col = lastColIdx; col < lastColIdx + cols; col++)
+                {
+                    rowData.Add(gridLines.lineData[row, col]);
+                }
+            }
+
+            sqList.Add(rowData.ToArray());
+            lastColIdx++;
+
+            if (lastColIdx + (cols - 1) >= 9)
+            {
+                lastRowIdx++;
+                lastColIdx = 0;
+            }
+
+            safeIdx++;
+
+            if (safeIdx > 100)
+                break;
+        }
+
+        return sqList;
     }
 }
