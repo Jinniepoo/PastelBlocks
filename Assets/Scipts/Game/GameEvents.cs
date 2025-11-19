@@ -12,4 +12,6 @@ public class GameEvents : MonoBehaviour
     public static Action MoveShapeToStartPos;
     public static Action RequestNewShape;
     public static Action SetShapeInactive;
+
+    public static Action<int, int> BestScoreUpdate;
 }

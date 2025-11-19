@@ -277,11 +277,10 @@ public class Grid : MonoBehaviour
 
         if (validShapes == 0)
         {
-            GameEvents.GameOver(false); //юс╫ц
-            Debug.Log("Game Over");
+            GameEvents.GameOver(false); 
+            //Debug.Log("Game Over");
         }
     }
-
     private bool Check_ShapeCanBePlacedOnGrid(Shape curShape)
     {
         var curShapeData = curShape.curShapeData;
