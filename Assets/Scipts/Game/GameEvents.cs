@@ -14,4 +14,6 @@ public class GameEvents : MonoBehaviour
     public static Action SetShapeInactive;
 
     public static Action<int, int> BestScoreUpdate;
+    public static Action<Config.SqColor> UpdateSqColor;
+    public static Action ShowMessage;
 }

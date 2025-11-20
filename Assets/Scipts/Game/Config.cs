@@ -6,12 +6,11 @@ public class Config : MonoBehaviour
 {
     public enum SqColor
     {
+        None,
         Blue,
-        Gray,
         Green,
         Orange,
         Purple,
-        Red,
         Yellow
     };
 }

@@ -72,9 +72,10 @@ public class Scores : MonoBehaviour
 
     private void UpdateSqColor()
     {
-        if (curScore >= sqTexture.thresholdVal)
+        if (GameEvents.UpdateSqColor != null && curScore >= sqTexture.thresholdVal)
         {
             sqTexture.UpdateColors(curScore);
+            GameEvents.UpdateSqColor(sqTexture.curColor);
         }
     }
 

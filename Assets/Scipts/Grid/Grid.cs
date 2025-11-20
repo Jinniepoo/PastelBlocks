@@ -19,24 +19,34 @@ public class Grid : MonoBehaviour
     public Vector2 startPos = new Vector2(0.0f, 0.0f);
     public float sqScale = 0.5f;
     public float sqOffset = 0.0f;
+    public SquareTexture sqTexture;
 
     private Vector2 offset = new Vector2(0.0f, 0.0f);
     private List<GameObject> gridSquares = new List<GameObject>();
 
     private GridLines gridLines;
+    private Config.SqColor curSqColor = Config.SqColor.None;
 
     private void OnEnable()
     {
         GameEvents.CheckIfShapeCanBePlaced += CheckIfShapeCanBePlaced;
+        GameEvents.UpdateSqColor += OnSqColorUpdate;
     }
     private void OnDisable()
     {
         GameEvents.CheckIfShapeCanBePlaced -= CheckIfShapeCanBePlaced;
+        GameEvents.UpdateSqColor -= OnSqColorUpdate;
     }
     void Start()
     {
         gridLines = GetComponent<GridLines>();
         CreateGrid();
+        curSqColor = sqTexture.activeSqTxtures[0].sqColor;
+    }
+
+    private void OnSqColorUpdate(Config.SqColor color)
+    {
+        curSqColor = color;
     }
 
     private void CreateGrid()
@@ -135,7 +145,7 @@ public class Grid : MonoBehaviour
         {
             foreach (var sqIdx in sqIdxs)
             {
-                gridSquares[sqIdx].GetComponent<GridSquare>().PlaceShapeOnBoard();
+                gridSquares[sqIdx].GetComponent<GridSquare>().PlaceShapeOnBoard(curSqColor);
             }
 
             var shapeLeft = 0;
@@ -201,9 +211,9 @@ public class Grid : MonoBehaviour
 
         var completedLines = Check_SquaresCompleted(lines);
 
-        if (completedLines > 2)
+        if (completedLines >= 2)
         {
-            //bonus animation 추가하기
+            GameEvents.ShowMessage();
         }
 
         var totalScore = 10 * completedLines;

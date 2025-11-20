@@ -9,6 +9,11 @@ public class GridSquare : MonoBehaviour
     public Image activeImage;
     public Image normalImage;
     public List<Sprite> normalImages;
+    private Config.SqColor curSqColor = Config.SqColor.None;
+    private Config.SqColor GetCurColor()
+    {
+        return curSqColor;
+    }
 
     public bool Selected { get; set; }
     public int SquareIdx { get; set; }
@@ -26,8 +31,9 @@ public class GridSquare : MonoBehaviour
         return hoverImage.gameObject.activeSelf;
     }
 
-    public void PlaceShapeOnBoard()
+    public void PlaceShapeOnBoard(Config.SqColor color)
     {
+        curSqColor = color;
         ActivateSquare();
     }
 
@@ -41,11 +47,13 @@ public class GridSquare : MonoBehaviour
 
     public void DeactivateSquare()
     {
+        curSqColor = Config.SqColor.None;
         activeImage.gameObject.SetActive(false);
     }
 
     public void ClearOccupied()
     {
+        curSqColor = Config.SqColor.None;
         Selected = false;
         SquareOccupied = false;
     }

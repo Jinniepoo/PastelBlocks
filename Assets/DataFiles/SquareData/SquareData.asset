@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b4f5b604f6962a4fb6a28559af770f6, type: 3}
-  m_Name: New Square Texture
+  m_Name: SquareData
   m_EditorClassIdentifier: 
-  thresholdVal: 100
+  thresholdVal: 10
   activeSqTxtures:
   - texture: {fileID: 21300000, guid: 69f7f0ee90c52df40812c1272679ccbb, type: 3}
-    sqColor: 0
-  - texture: {fileID: 21300000, guid: 34459babaa0a6904b8bf0788fa4144ff, type: 3}
     sqColor: 1
   - texture: {fileID: 21300000, guid: 9b89eecd1587c27449d691e0bbaf9bda, type: 3}
     sqColor: 2
@@ -24,8 +22,6 @@ MonoBehaviour:
     sqColor: 3
   - texture: {fileID: 21300000, guid: 91d560939762e044eb8c6728b73545c7, type: 3}
     sqColor: 4
-  - texture: {fileID: 21300000, guid: 21ad6a0500799504caeeb2f4fb007007, type: 3}
-    sqColor: 5
   - texture: {fileID: 21300000, guid: a7b6728e1cfa7074f94f2299737d4568, type: 3}
-    sqColor: 6
+    sqColor: 5
   curColor: 0
