@@ -12,6 +12,7 @@ public class BestScoreData
 
 public class Scores : MonoBehaviour
 {
+    public SquareTexture sqTexture;
     public TextMeshProUGUI scoreText;
     private bool newBestScore = false;
     private BestScoreData bestScores = new BestScoreData();
@@ -39,6 +40,7 @@ public class Scores : MonoBehaviour
     {
         curScore = 0;
         newBestScore = false;
+        sqTexture.SetStartColor();
         UpdateScoreTxt();
     }
     private void OnEnable()
@@ -60,13 +62,22 @@ public class Scores : MonoBehaviour
         if (curScore > bestScores.score)
         {
             newBestScore = true;
-            bestScores.score = curScore;   
+            bestScores.score = curScore;
+            SaveBestScores(true);
         }
-
+        UpdateSqColor();
         GameEvents.BestScoreUpdate(curScore, bestScores.score);
         UpdateScoreTxt();
     }
-    
+
+    private void UpdateSqColor()
+    {
+        if (curScore >= sqTexture.thresholdVal)
+        {
+            sqTexture.UpdateColors(curScore);
+        }
+    }
+
     private void UpdateScoreTxt()
     {
         scoreText.text = curScore.ToString();
