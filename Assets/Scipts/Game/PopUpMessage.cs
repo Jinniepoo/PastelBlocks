@@ -5,7 +5,7 @@ using UnityEngine;
 public class PopUpMessage : MonoBehaviour
 {
     public List<GameObject> msgs;
-    private void Start()
+    void Start()
     {
         GameEvents.ShowMessage += ShowMessage;
     }
@@ -14,7 +14,7 @@ public class PopUpMessage : MonoBehaviour
         GameEvents.ShowMessage -= ShowMessage;
     }
 
-    public void ShowMessage()
+    private void ShowMessage()
     {
         var idx = UnityEngine.Random.Range(0, msgs.Count);
         msgs[idx].SetActive(true);

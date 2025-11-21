@@ -10,7 +10,7 @@ public class GridSquare : MonoBehaviour
     public Image normalImage;
     public List<Sprite> normalImages;
     private Config.SqColor curSqColor = Config.SqColor.None;
-    private Config.SqColor GetCurColor()
+    public Config.SqColor GetCurColor()
     {
         return curSqColor;
     }

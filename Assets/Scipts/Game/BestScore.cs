@@ -17,7 +17,6 @@ public class BestScore : MonoBehaviour
     private void OnDisable()
     {
         GameEvents.BestScoreUpdate -= BestScoreUpdate;
-
     }
 
     private void BestScoreUpdate(int curScore, int bestScore)

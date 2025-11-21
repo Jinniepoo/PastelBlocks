@@ -47,7 +47,7 @@ public class BinaryData
         }
         catch (SerializationException e)
         {
-            Debug.Log("Read Failed");
+            Debug.Log("Read Failed" + e.Message);
             throw;
         }
         finally { fs.Close(); }

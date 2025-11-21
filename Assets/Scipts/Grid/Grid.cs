@@ -26,6 +26,7 @@ public class Grid : MonoBehaviour
 
     private GridLines gridLines;
     private Config.SqColor curSqColor = Config.SqColor.None;
+    private List<Config.SqColor> colorsInGrid = new List<Config.SqColor>();
 
     private void OnEnable()
     {
@@ -47,6 +48,26 @@ public class Grid : MonoBehaviour
     private void OnSqColorUpdate(Config.SqColor color)
     {
         curSqColor = color;
+    }
+
+    private List<Config.SqColor> GetAllSqColorsInGrid()
+    {
+        var colors = new List<Config.SqColor>();
+
+        foreach (var sq in gridSquares)
+        {
+            var gridSq = sq.GetComponent<GridSquare>();
+
+            if (gridSq.SquareOccupied)
+            {
+                var color = gridSq.GetCurColor();
+                if (colors.Contains(color) == false)
+                    colors.Add(color);
+
+
+            }
+        }
+        return colors;
     }
 
     private void CreateGrid()
@@ -208,6 +229,7 @@ public class Grid : MonoBehaviour
             lines.Add(data.ToArray());
         }
 
+        colorsInGrid = GetAllSqColorsInGrid();
 
         var completedLines = Check_SquaresCompleted(lines);
 
@@ -217,8 +239,35 @@ public class Grid : MonoBehaviour
         }
 
         var totalScore = 10 * completedLines;
-        GameEvents.AddScores(totalScore);
+        var bonusScores = PlayColorBonus();
+        GameEvents.AddScores(totalScore + bonusScores);
         Check_PlayerLost();
+    }
+
+    private int PlayColorBonus()
+    {
+        var colorsInGrid = GetAllSqColorsInGrid();
+        Config.SqColor color = Config.SqColor.None;
+
+        foreach (var col in colorsInGrid)
+        {
+            if (colorsInGrid.Contains(col) == false)
+                color = col;
+        }
+
+        if (color == Config.SqColor.None)
+        {
+            Debug.Log("Can't find color for bonus");
+            return 0;
+        }
+
+        if (color == curSqColor)
+        {
+            return 0;
+        }
+        GameEvents.ShowBonusScreen(color);
+
+        return 50;
     }
 
     private int Check_SquaresCompleted(List<int[]> data)
@@ -287,7 +336,7 @@ public class Grid : MonoBehaviour
 
         if (validShapes == 0)
         {
-            GameEvents.GameOver(false); 
+            GameEvents.GameOver(false);
             //Debug.Log("Game Over");
         }
     }
