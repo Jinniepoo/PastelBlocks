@@ -32,11 +32,13 @@ public class Grid : MonoBehaviour
     {
         GameEvents.CheckIfShapeCanBePlaced += CheckIfShapeCanBePlaced;
         GameEvents.UpdateSqColor += OnSqColorUpdate;
+        GameEvents.CheckIfPlayerLost += Check_PlayerLost;
     }
     private void OnDisable()
     {
         GameEvents.CheckIfShapeCanBePlaced -= CheckIfShapeCanBePlaced;
         GameEvents.UpdateSqColor -= OnSqColorUpdate;
+        GameEvents.CheckIfPlayerLost -= Check_PlayerLost;
     }
     void Start()
     {
@@ -241,6 +243,7 @@ public class Grid : MonoBehaviour
         var totalScore = 10 * completedLines;
         var bonusScores = PlayColorBonus();
         GameEvents.AddScores(totalScore + bonusScores);
+        GameEvents.CheckIfPlayerLost();
         Check_PlayerLost();
     }
 

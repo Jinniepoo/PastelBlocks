@@ -26,7 +26,8 @@ public class SelectSqColor : MonoBehaviour
     {
         foreach (var sqTxture in SqTexture.activeSqTxtures)
         {
-            GetComponent<Image>().sprite = sqTxture.texture;
+            if (SqTexture.curColor == sqTxture.sqColor)
+                GetComponent<Image>().sprite = sqTxture.texture;
         }
     }
 

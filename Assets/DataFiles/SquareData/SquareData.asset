@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4f5b604f6962a4fb6a28559af770f6, type: 3}
   m_Name: SquareData
   m_EditorClassIdentifier: 
-  thresholdVal: 10
+  thresholdVal: 100
   activeSqTxtures:
   - texture: {fileID: 21300000, guid: 69f7f0ee90c52df40812c1272679ccbb, type: 3}
     sqColor: 1
@@ -24,4 +24,4 @@ MonoBehaviour:
     sqColor: 4
   - texture: {fileID: 21300000, guid: a7b6728e1cfa7074f94f2299737d4568, type: 3}
     sqColor: 5
-  curColor: 0
+  curColor: 1

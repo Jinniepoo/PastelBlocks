@@ -13,8 +13,8 @@ public class SquareTexture : ScriptableObject
         public Config.SqColor sqColor;
     }
 
-    public int thresholdVal;
-    private const int StartTHVal = 100;
+    public int thresholdVal = 10;
+    private const int StartTHVal = 50;
     public List<TextureData> activeSqTxtures;
 
     public Config.SqColor curColor;
